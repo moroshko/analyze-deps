@@ -60,3 +60,7 @@ analyzeDeps(packageJson).then(analysis => console.log(analysis));
   }
 */
 ```
+
+## License
+
+[MIT](http://moroshko.mit-license.org)
