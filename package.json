@@ -1,0 +1,48 @@
+{
+  "name": "analyze-deps",
+  "version": "0.1.0",
+  "description": "Compares dependencies in the specified `package.json` to the latest available versions.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moroshko/analyze-deps.git"
+  },
+  "author": "Misha Moroshko <michael.moroshko@gmail.com>",
+  "scripts": {
+    "lint": "eslint index.js",
+    "build": "npm run lint",
+    "preversion": "npm run build",
+    "postversion": "git push && git push --tags"
+  },
+  "dependencies": {
+    "lodash.mapvalues": "^4.6.0",
+    "package-json": "^2.4.0",
+    "promise-all": "^1.0.0",
+    "semver": "^5.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.7.1"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "dependency",
+    "dependencies",
+    "devDependencies",
+    "version",
+    "versions",
+    "pkg",
+    "package",
+    "packages",
+    "package.json",
+    "npm",
+    "check",
+    "compare",
+    "analyze",
+    "analyse",
+    "outdated",
+    "latest"
+  ],
+  "license": "MIT"
+}
