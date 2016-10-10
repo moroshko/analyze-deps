@@ -1,6 +1,6 @@
 {
   "name": "analyze-deps",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Compare dependencies in `package.json` to the latest available versions.",
   "main": "index.js",
   "repository": {
