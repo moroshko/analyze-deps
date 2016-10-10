@@ -1,3 +1,8 @@
+[![Build Status](https://img.shields.io/codeship/ba96f3c0-7103-0134-0ab4-36aa8dc0a6fb/master.svg?style=flat-square)](https://codeship.com/projects/178250)
+[![Coverage Status](https://img.shields.io/codecov/c/github/moroshko/analyze-deps/master.svg?style=flat-square)](https://codecov.io/gh/moroshko/analyze-deps)
+[![bitHound Overall Score](https://www.bithound.io/github/moroshko/analyze-deps/badges/score.svg)](https://www.bithound.io/github/moroshko/analyze-deps)
+[![npm Version](https://img.shields.io/npm/v/analyze-deps.svg?style=flat-square)](https://npmjs.org/package/analyze-deps)
+
 # Analyze Deps
 
 Compare dependencies in `package.json` to the latest available versions.
