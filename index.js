@@ -16,7 +16,8 @@ const getDiff = (range, version) => {
     return '';
   }
 
-  return semver.diff(rangeVersion, version) || '';
+  return semver.diff(rangeVersion, version); // can't be null as diff shouldn't be calculated
+                                             // when rangeVersion === version
 };
 
 const analyzePackage = (packageName, range) =>

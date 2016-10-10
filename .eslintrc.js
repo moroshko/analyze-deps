@@ -1,7 +1,8 @@
 module.exports = {
   env: {
     node: true,
-    es6: true
+    es6: true,
+    mocha: true
   },
   extends: [
     'eslint:recommended'
@@ -22,6 +23,28 @@ module.exports = {
     'no-console': 2,
     'no-global-assign': 2,
     'no-multiple-empty-lines': [2, { max: 1 }],
+    'no-restricted-properties': [2,
+      {
+        object: 'describe',
+        property: 'only',
+        message: 'Please run all tests!'
+      },
+      {
+        object: 'describe',
+        property: 'skip',
+        message: 'Please run all tests!'
+      },
+      {
+        object: 'it',
+        property: 'only',
+        message: 'Please run all tests!'
+      },
+      {
+        object: 'it',
+        property: 'skip',
+        message: 'Please run all tests!'
+      }
+    ],
     'no-template-curly-in-string': 2,
     'no-trailing-spaces': 2,
     'no-unused-vars': 2,

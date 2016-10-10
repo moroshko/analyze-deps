@@ -1,6 +1,6 @@
 # Analyze Deps
 
-Compares dependencies in the specified `package.json` to the latest available versions.
+Compare dependencies in `package.json` to the latest available versions.
 
 ## Installation
 
