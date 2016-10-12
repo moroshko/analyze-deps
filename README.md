@@ -66,6 +66,22 @@ analyzeDeps(packageJson).then(analysis => console.log(analysis));
 */
 ```
 
+## Description
+
+This library analyzes the provided `package.json`, and returns the packages which version range can be updated to include the latest version only.
+
+Currently, only `dependencies` and `devDependencies` are analyzed (feel free to submit a Pull Request if you need more than that). 
+
+You can pass a second argument if you don't want to analyze everything. For example, to avoid analyzing `dependencies`, do:
+
+```js
+analyzeDeps(packageJson, { dependencies: false }).then(...)
+```
+
+## Related
+
+* [analyze-deps-cli](https://github.com/moroshko/analyze-deps-cli) - CLI for this module
+
 ## License
 
 [MIT](http://moroshko.mit-license.org)
