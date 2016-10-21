@@ -2,28 +2,29 @@ const semver = require('semver');
 const mapValues = require('lodash.mapvalues');
 const promiseAll = require('promise-all');
 const getPackageData = require('package-json');
+const updateRange = require('./update-range');
 
 const nonDigitStartRegex = /^[^0-9]+/;
 
 const getDiff = (range, version) => {
-  if (range.indexOf(' ') !== -1) {
-    return '';
-  }
-
   const rangeVersion = range.replace(nonDigitStartRegex, '');
 
-  if (!semver.valid(rangeVersion)) {
-    return '';
-  }
-
-  return semver.diff(rangeVersion, version); // can't be null as diff shouldn't be calculated
-                                             // when rangeVersion === version
+  return semver.diff(rangeVersion, version);
 };
 
 const analyzePackage = (packageName, range) =>
   getPackageData(packageName).then(result => {
     const latestVersion = result['dist-tags'].latest;
     const versions = Object.keys(result.versions);
+    const latestRange = updateRange(range, latestVersion, versions);
+
+    if (latestRange === null) {
+      return {
+        status: 'error',
+        error: `I don't know how to update \`${packageName}\` range ${range} to include only the latest version ${latestVersion}.`
+      };
+    }
+
     const versionsInRange = versions.filter(version =>
       semver.satisfies(version, range)
     );
@@ -40,6 +41,7 @@ const analyzePackage = (packageName, range) =>
         status: 'not-latest',
         current: range,
         latest: latestVersion,
+        latestRange: latestRange,
         diff: getDiff(range, latestVersion)
       };
     }
