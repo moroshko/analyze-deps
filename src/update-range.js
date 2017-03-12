@@ -17,7 +17,7 @@ const updateRange = (range, latest, versions) => {
   const updatedRange = `${match[1] || ''}${latest}`;
 
   // Validate that the new range contains only the latest version.
-  for (let i = 0, len = versions.length; i < len; i++) {
+  for (var i = 0, len = versions.length; i < len; i++) {
     const version = versions[i];
 
     if (semver.satisfies(version, updatedRange) && version !== latest) {
